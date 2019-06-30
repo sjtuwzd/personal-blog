@@ -1,0 +1,12 @@
+.m-padded-tb-mini {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+
+.blog-logo {
+    position: relative !important;
+    top: 8px !important;
+
+    /*position: absolute !important;*/
+    /*top: 25% !important;*/
+}
