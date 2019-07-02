@@ -13,6 +13,8 @@
     <script src = "../static/lib/editormd/editormd.min.js"></script>
     <link rel="stylesheet" href="../static/css/me.css">
     <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="../../../AppData/Local/Temp/Rar$DRa10668.40576/blog/static/css/typo.css">
+    <link rel="stylesheet" href="../../../AppData/Local/Temp/Rar$DRa10668.41470/blog/static/css/typo.css">
 </head>
 <body>
 
@@ -62,9 +64,20 @@
 
 
 <!--main content-->
-<div class="m-container-small m-padded-tb-big">
+<div class="m-container m-padded-tb-big">
     <div class="ui container">
+
+
+
+
         <form action=""method="post" class="ui form">
+
+<!--            <div id="md-content" style="z-index: 1">-->
+<!--                    <textarea name="content" placeholder="博客内容" style="display: none">-->
+<!--                        [TOC]-->
+<!--                        #### Disabled Options-->
+<!--                    </textarea>-->
+<!--            </div>-->
 
 
         <div class="required field">
@@ -86,10 +99,7 @@
 
             <div class="field">
                 <div id="md-content" style="z-index: 1">
-                    <textarea name="content" id="" cols="30" rows="10" placeholder="博客内容" style="display: none">
-                        [TOC]
-                        #### Disabled Options
-                    </textarea>
+                    <textarea name="content" placeholder="博客内容" style="display: none">haha!</textarea>
                 </div>
             </div>
 
@@ -127,7 +137,7 @@
 
             <div class="field">
                 <div class="ui left labeled input">
-                <label for="" class="ui teal basic label">首图</label>
+                <label  class="ui teal basic label">首图</label>
                 <input type="text" name = "indexPicture" placeholder="首图引用地址">
                 </div>
             </div>
@@ -224,7 +234,7 @@
 <script>
 
 <!--    初始化Markdown-->
-    var contentEditor;
+    let contentEditor;
     $(function(){
         contentEditor = editormd("md-content",{
             width : "100%",

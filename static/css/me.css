@@ -89,6 +89,11 @@ body {
     display: inline-block !important;
 }
 
+.m-container-big {
+    max-width: 150em !important;
+    margin: auto !important;
+}
+
 .m-container {
     max-width: 90em !important;
     margin: auto !important;
