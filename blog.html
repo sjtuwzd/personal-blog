@@ -11,10 +11,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script src="./static/js/prism.js"></script>
+    <script src="./static/lib/tocbot/tocbot.min.js"></script>
     <link rel="stylesheet" href="./static/css/me.css">
     <link rel="stylesheet" href="./static/css/typo.css">
     <link rel="stylesheet" href="./static/css/animate.css">
     <link rel="stylesheet" href="./static/css/prism.css">
+    <link rel="stylesheet" href="./static/lib/tocbot/tocbot.css">
+
 </head>
 <body>
 
@@ -86,7 +89,7 @@
             </h2>
             <br>
 
-            <div id = "content" class ="typo typo-selection m-padded-lr-responsive m-padded-tb-large">
+            <div id = "content" class ="typo typo-selection m-padded-lr-responsive m-padded-tb-large js-toc-content">
                 <h2 id="tagline" class="serif">一致化浏览器排版效果，构建最适合中文阅读的网页排版</h2>
 
                 <ol id="table">
@@ -306,7 +309,7 @@ h5,h6{font-size:1em;}
 }
 </pre>
 
-                <h3 id="section3">三、附录</h3>
+                <h2 id="section3">三、附录</h2>
 
                 <h5 id="appendix1">1、<i class="serif">Typo.css</i> 排版偏重点</h5>
                 <table class = "ui table" summary="Typo.css 排版偏重点">
@@ -526,7 +529,7 @@ h5,h6{font-size:1em;}
         </div>
 
 <!--        留言区域-->
-        <div class="ui bottom attached segment">
+        <div id="comment-container" class="ui bottom attached segment">
             <div class="ui teal segment">
 
 
@@ -645,6 +648,24 @@ h5,h6{font-size:1em;}
     </div>
 </div>
 
+<div class = "m-padded m-fixed m-right-bottom">
+
+    <div class="ui vertical icon buttons" style="z-index: 1">
+        <button class="ui teal toc button" type="button">目录</button>
+        <a href="#comment-container" class="ui teal button" >留言</a>
+        <button class="ui icon button"><i class="weixin icon"></i></button>
+        <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+    </div>
+
+</div>
+
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px">
+    <ol class="js-toc">
+
+    </ol>
+</div>
+
+
 <br>
 <br>
 <footer class="ui inverted vertical segment m-padded-tb-massive">
@@ -686,6 +707,9 @@ h5,h6{font-size:1em;}
 
 
 <script>
+
+
+
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
@@ -694,6 +718,18 @@ h5,h6{font-size:1em;}
         popup : $('.payQR.popup'),
         on : 'click',
         position : 'bottom center'
+    });
+
+    tocbot.init({
+        tocSelector: '.js-toc',
+        contentSelector: '.js-toc-content',
+        headingSelector: 'h1,h2,h3',
+    });
+
+    $('.toc.button').popup({
+        popup : $('.toc-container.popup'),
+        on : 'click',
+        position : 'left center'
     });
 
 
