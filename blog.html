@@ -13,6 +13,9 @@
     <script src="./static/js/prism.js"></script>
     <script src="./static/lib/tocbot/tocbot.min.js"></script>
     <script src="./static/lib/qrcode/qrcode.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="./static/lib/waypoints/jquery.waypoints.js"></script>
+
     <link rel="stylesheet" href="./static/css/me.css">
     <link rel="stylesheet" href="./static/css/typo.css">
     <link rel="stylesheet" href="./static/css/animate.css">
@@ -50,7 +53,7 @@
 
 
 <!--main content-->
-<div class="m-container-small m-padded-tb-big animated fadeIn">
+<div id = "waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
     <div class="ui container">
 
 <!--        头部-->
@@ -649,13 +652,12 @@ h5,h6{font-size:1em;}
     </div>
 </div>
 
-<div class = "m-padded m-fixed m-right-bottom">
-
-    <div class="ui vertical icon buttons" style="z-index: 1">
+<div id="toolbar" class = "m-padded m-fixed m-right-bottom" style="z-index: 1;display: none" >
+    <div class="ui vertical icon buttons" >
         <button class="ui teal toc button" type="button">目录</button>
         <a href="#comment-container" class="ui teal button" >留言</a>
         <button class="ui wechat icon button"><i class="weixin icon"></i></button>
-        <a href="#" class="ui icon button"><i class="chevron up icon"></i></a>
+        <div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
     </div>
 
 </div>
@@ -752,6 +754,23 @@ h5,h6{font-size:1em;}
         correctLevel : QRCode.CorrectLevel.H
     });
 
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0,500);
+    })
+
+
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if(direction == 'down') {
+                $('#toolbar').show(100);
+            }
+            else {
+                $('#toolbar').hide(500);
+            }
+            console.log('Scrolled to waypoint!' + direction)
+        }
+    })
 </script>
 </body>
 </html>
